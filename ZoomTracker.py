@@ -37,9 +37,8 @@ for i in df.index:
         df.at[i,'Preco Mais Baixo']=CurrentWeb[i]
         df.at[i,'Preco Atual']=CurrentWeb[i]        
         df.at[i,'Data']=date_time
-	break
-    
-    if(CurrentLocal[i]>CurrentWeb[i]):      
+	    
+    elif(CurrentLocal[i]>CurrentWeb[i]):      
         print(productName, "teve uma queda de preco! Preco: R$",CurrentWeb[i])        
     elif(CurrentLocal[i]<CurrentWeb[i]):              
         print(productName, "teve um aumento de preco! Preco: R$",CurrentWeb[i])   
