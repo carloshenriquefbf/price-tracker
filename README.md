@@ -11,10 +11,6 @@ na planilha.
 ![](README0.PNG)
 ![](README1.PNG)
 
-## Futuros updates:
-Pretendo implementar a adição do preço mais baixo também, mas ainda preciso aprender a usar o Selenium. Por enquanto, caso não seja adicionado manualmente,
-o valor mais baixo será o valor do produto na primeira vez que o programa rodar. Nas futuras iterações do programa ele irá conferir o preço do produto atualmente com o 
-preço mais baixo normalmente.
 
 
 
