@@ -1,9 +1,11 @@
 import pandas
-import requests
 import re 
 from bs4 import BeautifulSoup
 from datetime import date
-import math
+import time
+import math  
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 df = pandas.read_csv('planilha.csv')
 
@@ -11,10 +13,17 @@ url = df['Zoom Link']  #Lista com as urls dos produtos
 
 CurrentWeb = []  #Lista com os precos atuais dos produtos
 
-for i in df.index:
-    page = requests.get(url[i])
-    soup = BeautifulSoup(page.content, 'html.parser')
+for i in df.index:              
+    
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(options=options)   
+    driver.get(url[i])       
+    time.sleep(3)
+    page = driver.page_source    
+    driver.quit()
 
+    soup = BeautifulSoup(page, 'html.parser')    
     price = (soup.select_one("span[data-testid*=integer]").text)
     
     price = re.sub('[R$.]', '', price)
